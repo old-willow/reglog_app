@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text-html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+
+  <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+
+  {% block datepicker %}
+  {% endblock %}
+
+  {%block focus %}
+  {% endblock %}
+
+</head>
+
+<body onload="focus_first_element();">
+
+  {% block header %}
+  {% endblock %}
+
+  {% comment %}
+  {% block er %}
+  {% endblock %}
+  {% endcomment %}
+
+  <div id="main_{% if formname %}{{ formname|lower }}{% else %}{{ form.formname2 }}{% endif %}_div">
+  {% if form.is_multipart %}
+  <form enctype="multipart/form-data" action="" method="post" onSubmit="return validate_{% if formname %}{{ formname|lower }}{% else %}{{ form.formname2 }}{% endif %}_form();">
+  {% else %}
+    <form action="" method="post" onSubmit="return validate_{{ formname|lower }}_form()">
+  {% endif %}
+  {% csrf_token %}
+    <table id="{% if formname %}{{ formname|lower }}{% else %}{{ form.formname2 }}{% endif %}_table">
+      {% block form %}
+      {% endblock form %}
+    </table>
+  </form>
+
+</div>
+
+  <script text="text/javascript" src="/static/js/validate_form.js"></script>
+
+</body>
+
+</html>

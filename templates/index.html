@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text-html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <title>Home Page for www.reglog.apu</title>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+
+  <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#index_login").click(function() {
+       window.location.href = "/login/login-form/" 
+      });
+      $("#index_registration").click(function() {
+       window.location.href = "/register/register-form/" 
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+<div id="index_main_div">
+  <div id="index_login">
+    <a href="/login/login-form/">Login</a>
+  </div>
+  <div id="index_registration">
+    <a href="/register/register-form/">Registration</a>
+  </div>
+</div>
+
+</body>
+
+</html>
