@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.admin import widgets # for the built in django datepicker.
 
-from reglog.register.models import User_Data, Country
+from register.models import User_Data, Country
 
 from datetime import datetime
 

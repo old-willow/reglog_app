@@ -2,8 +2,8 @@ from django.shortcuts import render_to_response
 from django.http import Http404, HttpResponseRedirect
 from django.template import RequestContext
 
-from reglog.register.models import User_Data
-from reglog.register.forms import RegistrationFormCustom
+from register.models import User_Data
+from register.forms import RegistrationFormCustom
 
 
 def process_register(request):

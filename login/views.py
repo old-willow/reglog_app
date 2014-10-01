@@ -9,8 +9,8 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.views import password_reset, password_reset_complete
 
-from reglog.register.models import User_Data
-from reglog.login.forms import LoginForm, PasswordResetForm, ChangePasswordForm
+from register.models import User_Data
+from login.forms import LoginForm, PasswordResetForm, ChangePasswordForm
 
 
 def ajax_login_username_check(request):

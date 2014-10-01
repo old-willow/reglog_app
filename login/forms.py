@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User # Important for hashing passwords!
                                             # And for using built in table, extending by my own data.
 
-from reglog.register.models import User_Data
+from register.models import User_Data
 
 from django.contrib.sites.models import Site
 from django.template import Context, loader

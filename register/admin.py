@@ -1,13 +1,18 @@
 from django.contrib import admin
-from reglog.register.models import User_Data
 from django import forms
+
+from register.models import User_Data
 
 
 class RegistrationFormAdmin(forms.ModelForm):
     """
     Overriding registration form for admin site.
     """
+
     class Meta:
+        # On Django1.8, ModelForm.Meta must contain fields or exclude fields
+        # Don't know why, I found on github that this shuld be set.
+        exclude = []
         model = User_Data
         widgets = {
             'password': forms.PasswordInput(),
