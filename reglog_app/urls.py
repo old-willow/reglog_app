@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+admin.autodiscover()
+
 urlpatterns = patterns('',
-    # Examples:
-    #url(r'^$', 'login.views.process_login', name='home'),
-    url(r'^$', include('login.urls'), namespace='home-login'),
-    url(r'^register/$', include('login.urls'), namespace='register'),
+    url(r'^$', include('login.urls', namespace='login', app_name='login')),
+    url(r'^register/', include('register.urls', namespace='register', app_name='register')),
 
     url(r'^admin/', include(admin.site.urls)),
 )
