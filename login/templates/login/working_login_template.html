@@ -1,0 +1,76 @@
+{% extends 'form_base.html' %}
+
+{% block title %}Login Form{% endblock %}
+
+{% block focus %}
+<script type="text/javascript">
+  function focus_first_element() {
+    document.getElementById('{{ form.username.auto_id }}').focus();
+  };
+</script>
+{% endblock %}
+
+{% block header %}
+<div id="header_{{ formname|lower }}">
+  <h2>{{ formname }} Form</h2>
+</div>
+{% endblock %}
+
+{% comment %}
+{% block er %}
+{% if form.errors %}
+  <p style="color: red;">
+  Please correct the error{{ form.errors|pluralize }} bellow.
+  </p>
+{% endif %}
+{% endblock %}
+{% endcomment %}
+
+{% block form %}
+
+      {% if form.errors %}
+        <div class="error_div">
+          {# {{ form.non_field_errors }} #}
+          {% if form.username.errors %}
+            {{ form.username.errors }}
+          {% endif %}
+          {% if form.password.errors %}
+            {{ form.password.errors }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <tr>
+        <td>{{ form.username.label }}</td>
+        <td width="10px">
+          {%if form.username.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label }}</td>
+        <td width="10px">
+          {%if form.password.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.password }}</td>
+      </tr>
+      <td>
+        {% url reglog.register.views.process_register as register %}
+        <a href="{{ register }}">Not Registered?</a>
+          <br />
+          <a href="/login/password/reset/">Forgot a password?</a>
+          <br />
+          <a href="/"><span style="color:#006600; font-size:1.8em;">home</span></a>
+        </td>
+        <td width="10px"></td>
+        <td><input type="submit" id="submit" value="Login" /></td>
+      </tr>
+{% endblock form %}

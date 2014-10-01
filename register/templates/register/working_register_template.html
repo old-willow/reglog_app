@@ -1,0 +1,254 @@
+{% extends 'form_base.html' %}
+
+{% block title %}Registration Form{% endblock %}
+
+{% block datepicker %}
+  <!-- This is only needed for Registration form. -->
+  <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui-1.8.16.custom.css" />
+  <script type="text/javascript" src="/static/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+  <!-- For Datepicker -->
+  <script type="text/javascript"> 
+    $(function() {
+      // jQuery's Datepicker
+      $('#datepicker').datepicker({
+        changeYear: true,
+        yearRange: 'c-60:c',
+        changeMonth: true,
+        dateFormat: 'yy-mm-dd'
+      });
+    });
+  </script>
+{% endblock %}
+
+{% block focus %}
+<script type="text/javascript">
+  function focus_first_element() {
+    document.getElementById('{{ form.gender.auto_id }}').focus();
+  };
+</script>
+{% endblock %}
+
+{% block header %}
+<div id="header_{{ formname|lower }}">
+  <h2>{{ formname }} Form</h2>
+</div>
+{% endblock %}
+
+{% block form %}
+
+      {% if form.errors %}
+        <div class="error_div">
+          {# {{ form.non_field_errors }} #}
+          {% if form.gender.errors %}
+            {% if form.gender.errors %}
+              {{ form.gender.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.firstname.errors %}
+            {% if form.firstname.errors %}
+              {{ form.firstname.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.lastname.errors %}
+            {% if form.lastname.errors %}
+              {{ form.lastname.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.username.errors %}
+            {% if form.username.errors %}
+              {{ form.name.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.phone.errors %}
+            {% if form.phone.errors %}
+              {{ form.phone.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.countries.errors %}
+            {% if form.countries.errors %}
+              {{ form.countries.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.address.errors %}
+            {% if form.address.errors %}
+              {{ form.address.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.email.errors %}
+            {% if form.email.errors %}
+              {{ form.email.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.password.errors %}
+            {% if form.password.errors %}
+              {{ form.password.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.confirm_password.errors %}
+            {% if form.confirm_password.errors %}
+              {{ form.confirm_password.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.datepicker.errors %}
+            {% if form.datepicker.errors %}
+              {{ form.datepicker.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.note.errors %}
+            {% if form.note.errors %}
+              {{ form.note.errors }}
+            {% endif %}
+          {% endif %}
+          {% if form.portrait.errors %}
+            {% if form.portrait.errors %}
+              {{ form.portrait.errors }}
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <tr>
+        <td>{{ form.gender.label }}</td>
+        <td width="10px"></td>
+        <td>{{ form.gender }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.firstname.label }}</td>
+        <td width="10px">
+          {% if form.firstname.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.firstname }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.lastname.label }}</td>
+        <td width="10px">
+          {% if form.lastname.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.lastname }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.username.label }}</td>
+        <td width="10px">
+          {% if form.username.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.username }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.phone.label }}</td>
+        <td width="10px">
+          {% if form.phone.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.phone }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.countries.label }}</td>
+        <td width="10px">
+          {% if form.countries.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.countries }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.address.label }}</td>
+        <td width="10px">
+          {% if form.address.errors %}
+            <span class="error">!</span>
+          {% endif %}
+        </td>
+        <td>{{ form.address }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.email.label }}</td>
+        <td width="10px">
+          {% if form.email.errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        </td>
+        <td>{{ form.email }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.password.label }}</td>
+        <td width="10px">
+          {% if form.password.errors or form.non_field_errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        <td>{{ form.password }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.confirm_password.label }}</td>
+        <td width="10px">
+          {% if form.confirm_password.errors or form.non_field_errors %}
+            <span class="error">!</span>
+          {% else %}
+            *
+          {% endif %}
+        <td>{{ form.confirm_password }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.datepicker.label }}</td>
+        <td width="10px">
+          {% if form.datepicker.errors %}
+            <span class="error">!</span>
+          {% endif %}
+        </td>
+        <!-- JavaScript (jQuery Datepicker Widget placeholder) -->
+        <!--<td><input type="text" id="datepicker" name="datepicker" /></td>-->
+        <td>{{ form.datepicker }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.note.label }}</td>
+        <td width="10px"></td>
+        <td>{{ form.note }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.portrait.label }}</td>
+        <td width="10px"></td>
+        <td>{{ form.portrait }}</td>
+      </tr>
+
+      <tr>
+        <td> Already registered? <a href="/login/login-form/">Login</a></td>
+        <td width="10px"></td>
+        <td><input type="submit" id="submit" value="Register" /></td>
+      </tr>
+      <tr>
+        <td><a href="/"><span style="color:#006600; font-size:1.8em;">home</span></a></td>
+        <td width="10px"></td>
+      </tr>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text-html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <title>Successfully Registered</title>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+
+  <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+
+<body>
+
+<div id="header_li_lo_rs">
+  <h2>You are Registered Successfully!</h2>
+</div>
+  <div id="main_li_lo_rs_div">
+    {% for field in form %}
+      Field {{ field.name }}: {{ field.data }}
+      <br />
+    {% endfor %}
+    <span style="color: magenta;">Form is bound: {{ form.is_bound }}.<br />Form is valid: {{ form.is_valid }}.</span>
+    <br />
+    {% for k, v in cd.items %}
+      {{ k }}: {{ v }}
+      <br />
+    {% endfor %}
+    <table id="li_lo_rs_table">
+      <tr>
+        <td><a href="/">Home</a></td>
+      </tr>
+      <tr>
+        <td>Now You can finaly <a href="/login/login-form/">Login</a>!</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

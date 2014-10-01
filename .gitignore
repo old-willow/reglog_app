@@ -1,0 +1,7 @@
+.backup
+.swap
+session-reglog-app.vim
+*.pyc
+*.swo
+
+templates-old/
