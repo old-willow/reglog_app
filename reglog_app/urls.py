@@ -3,8 +3,9 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'reglog_app.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    #url(r'^$', 'login.views.process_login', name='home'),
+    url(r'^$', include('login.urls'), namespace='home-login'),
+    url(r'^register/$', include('login.urls'), namespace='register'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

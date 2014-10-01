@@ -1,15 +1,16 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, include, url
 from reglog.login.forms import PasswordResetForm, ChangePasswordForm
 
 urlpatterns = patterns('',
-    (r'^login-form/$', 'reglog.login.views.process_login'),
-    (r'^loged-in/$', 'reglog.login.views.loged_in'),
-    (r'^portrait-look/$', 'reglog.login.views.show_portrait'),
-    (r'^loged-out/$', 'reglog.login.views.loged_out'),
-    (r'^logout-site/$', 'reglog.login.views.process_logout'),
-    (r'^login-error/$', 'reglog.login.views.error_login'),
-    #(r'^password-successfully-changed/$', 'reglog.login.views.password_changed'),
-    #(r'^request-sent/$', 'reglog.login.views.request_new_password_sent'),
+    url(r'^$', 'login.views.process_login', name='index'),
+    #(r'^login-form/$', 'login.views.process_login'),
+    (r'^loged-in/$', 'login.views.loged_in', name='logedin'),
+    (r'^portrait-look/$', 'login.views.show_portrait', name='portrait'),
+    (r'^loged-out/$', 'login.views.loged_out', name='logedout'),
+    (r'^logout-site/$', 'login.views.process_logout', name='logout-site'),
+    (r'^login-error/$', 'login.views.error_login', name='login-error'),
+    #(r'^password-successfully-changed/$', 'login.views.password_changed'),
+    #(r'^request-sent/$', 'login.views.request_new_password_sent'),
 
     # For resetting a password (user has lost his password).
     (r'^password/reset/$', 'django.contrib.auth.views.password_reset',

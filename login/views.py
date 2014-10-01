@@ -75,8 +75,10 @@ def process_login(request):
     else:
         form = LoginForm() # An unbound form.
 
-    context = {'form': form,
-               'formname': 'Login'}
+    context = {
+        'form': form,
+        'formname': 'Login',
+    }
 
     return render_to_response('login/working_login_template.html',
                               context,
@@ -84,7 +86,7 @@ def process_login(request):
 
 
 def process_logout(request):
-   auth.logout(request) 
+   auth.logout(request)
 
    return HttpResponseRedirect('/login/loged-out/')
 
@@ -138,7 +140,7 @@ def show_portrait(request):
                                       context_instance=RequestContext(request))
         else:
             return HttpResponseRedirect('/no/available/portrait/')
-        
+
 
 def no_portrait(request):
     context = {}

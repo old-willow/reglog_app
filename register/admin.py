@@ -10,9 +10,10 @@ class RegistrationFormAdmin(forms.ModelForm):
     """
 
     class Meta:
-        # On Django1.8, ModelForm.Meta must contain fields or exclude fields
         # Don't know why, I found on github that this shuld be set.
+        # On Django1.8, ModelForm.Meta must contain fields or exclude fields
         exclude = []
+
         model = User_Data
         widgets = {
             'password': forms.PasswordInput(),
