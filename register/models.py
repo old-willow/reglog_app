@@ -9,7 +9,7 @@ class Country(models.Model):
     country_name = models.CharField(max_length=64)
 
     def __unicode__(self):
-        return "%s" % (self.country_name)
+        return u'%s' % (self.country_name)
 
 
 class User_Data(models.Model):
@@ -55,4 +55,4 @@ class User_Data(models.Model):
 
     def __unicode__(self):
         # Taking data form 'user-data' table.
-        return '%s %s' % (self.user.last_name, self.user.first_name)
+        return u'%s %s' % (self.user.last_name, self.user.first_name)
