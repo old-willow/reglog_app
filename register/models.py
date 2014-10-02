@@ -5,11 +5,10 @@ from datetime import datetime
 
 class Country(models.Model):
     country_code = models.CharField(max_length=3)
-
     country_name = models.CharField(max_length=64)
 
     def __unicode__(self):
-        return u'%s' % (self.country_name)
+        return '%s' % (self.country_name, )
 
 
 class User_Data(models.Model):
@@ -26,29 +25,21 @@ class User_Data(models.Model):
     )
 
     user = models.ForeignKey(django_models.User, primary_key=True)
-
     gender = models.CharField(blank=True, null=True,
                               max_length=1, default='NULL',
                               choices=GENDER_CHOICES)
-
     webpage = models.URLField(max_length=255,
                               blank=True,
                               null=True,
                               verbose_name='Web page')
-
     phone = models.CharField(max_length=255,
                              blank=True,
                              null=True,
                              default='NULL')
-
     countries = models.ForeignKey(Country)
-
     address = models.CharField(max_length=512)
-
     date_of_birth = models.DateField(blank=True, null=True, default='NULL')
-
     note = models.TextField(blank=True, null=True, default='NULL')
-
     portrait = models.ImageField(upload_to='portrait-images/',
                                  blank=True, null=True,
                                  default='NULL')
