@@ -19,44 +19,31 @@ class RegistrationFormCustom(forms.Form):
     gender = forms.ChoiceField(required=False,
                                choices=GENDER_CHOICE,
                                label='Gender:')
-
     firstname = forms.CharField(label='First name:')
-
     lastname = forms.CharField(label='Last name:')
-
     username = forms.CharField(label='User name:')
-
     phone = forms.CharField(label='Phone number:', required=False)
-
     countries = forms.ModelChoiceField(queryset=Country.objects.all(),
                                        label='Country:',
                                        empty_label='-- --')
-
     address = forms.CharField(widget=forms.Textarea, label='Address:')
-
     email = forms.EmailField(label='e-mail:')
-
     webpage = forms.URLField(required=False, label='Web page:')
-
     password = forms.CharField(widget=forms.PasswordInput(render_value=False),
                                max_length=15, min_length=4,
                                label='Password:')
-
     confirm_password = forms.CharField(widget=forms.PasswordInput(render_value=False),
                                        max_length=15, min_length=4,
                                        label='Confirm password:')
-
     datepicker = forms.DateField(required=False, label='Date of birth:')
-
     note = forms.CharField(widget=forms.Textarea, required=False, label='Notes:')
-
     portrait = forms.ImageField(required=False,
                                 #max_length=5,
                                 label='Portrait picture:')
 
 
     def __unicode__(self):
-        return "%s %s" % (self.firstname, self.lastname)
+        return u"%s %s" % (self.firstname, self.lastname)
 
 
     def clean_username(self):

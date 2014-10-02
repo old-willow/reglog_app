@@ -1,0 +1,460 @@
+body {
+  /*position: relative;*/
+  background-color: #333333;
+  color: #cccccc;
+  /*border: 0px;
+  padding: 0px;
+  margin: 0px;*/
+}
+
+#header_login {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  text-align: center;
+  padding: 0px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0px auto;
+  top: 10px;
+  left: auto;
+  width: 320px;
+  height: 40px;
+}
+
+#header_registration {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  text-align: center;
+  padding: 0px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0px auto;
+  top: 10px;
+  left: auto;
+  width: 505px;
+  height: 40px;
+}
+
+#header_password_reset_form {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  text-align: center;
+  padding: 0px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0px auto;
+  top: 10px;
+  left: auto;
+  width: 400px;
+  height: 40px;
+}
+
+#header_password_reset_confirm {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  text-align: center;
+  padding: 0px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0px auto;
+  top: 10px;
+  left: auto;
+  width: 400px;
+  height: 40px;
+}
+#main_password_reset_form_div {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+  /*border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;*/
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 400px;
+  height: 160px;
+}
+
+#main_login_div {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+ /* border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;*/
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 320px;
+  height: 140px;
+}
+
+#main_password_reset_confirm_div {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+  /*border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;*/
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 400px;
+  height: 100px;
+}
+
+#login_table {
+  position: relative;
+  top: 15px;
+  margin: auto;
+}
+
+#main_registration_div {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 505px;
+  height: 460px;
+}
+
+#registration_table {
+  margin: auto;
+}
+
+#password_reset_form_table {
+  margin: auto;
+}
+
+#password_reset_confirm_table {
+  margin: auto;
+}
+#gender {
+  /*position: relative;
+  right: auto;*/
+  float: right;
+}
+
+#country {
+  width: 190px;
+  float: right;
+}
+
+#portrait {
+  /*width: 190px;
+  width: auto;
+  float: right;*/
+  width: 190px;
+}
+
+/* This button is only for forgot password form. */
+#submit_forgot {
+  width: 150px;
+}
+
+input {
+  background-color: #525252;
+  border: 0px;
+  color: #cccccc;
+  float: right;
+}
+
+input:focus {
+  background-color: #757575;
+  border: 0px;
+  color: #cccccc;
+}
+
+input[type="text"] {
+  width: 190px;
+}
+
+input[type="password"] {
+  width: 190px;
+}
+
+input[type="submit"] {
+  height: 30px;
+  width: 70px;
+  border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #828282;
+  transiton: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+}
+
+textarea {
+  width: 186px;
+  height: 50px;
+  background-color: #525252;
+  border: 0px;
+  color: #cccccc;
+  float: right;
+  resize: none;
+}
+
+/*input[type="file"] {
+  width: 190px;
+}*/
+
+/* Styling links */
+a {
+  font-size: 12px;
+  text-decoration: none;
+}
+a:link {
+  color: #66e3ff;
+}
+a:visited {
+  color: #b8d4ff;
+}
+a:hover {
+  transition: color .5s;
+  -webkit-transition: color .5s;
+  color: #4d94ff;
+}
+a:active {
+  color: #f1f6ff;
+}
+
+
+/* START: index.html css part. */
+#index_main_div {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 400px;
+  height: 340px;
+}
+#index_login {
+  position: relative;
+  background-color: #2f4d3e;
+  text-align: center;
+  font-family: "Verdana", Sans-serif, serif;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  top: 0px;
+  float: left;
+  transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+#index_login:click {
+
+}
+#index_registration {
+  position: relative;
+  background-color: #24384a;
+  text-align: center;
+  font-family: "Verdana", Sans-serif, serif;
+  width: 200px;
+  height: 60px;
+  top: 0px;
+  float: right;
+  transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+}
+#index_login:hover {
+  background-color: #2f6c3e;
+  transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  cursor: pointer;
+  /*transition-property: background-color;
+  transitoin-duration: .5s;
+  transition-timing-function: linear;
+  transition-delay: .1s;
+  -moz-transition-property: background-color;
+  -moz-transitoin-duration: .5s;
+  -moz-transition-timing-function: linear;
+  -moz-transition-delay: .1s;
+  -webkit-transition-property: background-color;
+  -webkit-transitoin-duration: .5s;
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-delay: .1s;
+  -o-transition-property: background-color;
+  -o-transitoin-duration: .5s;
+  -o-transition-timing-function: linear;
+  -o-transition-delay: 0s;*/
+}
+#index_registration:hover {
+  background-color: #243877;
+  transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  transition-delay: .5s;
+  cursor: pointer;
+  /*transition-property: background-color;
+  transitoin-duration: .5s;
+  transition-timing-function: linear;
+  transition-delay: .1s;*/
+  /*-moz-transition-property: background-color;*/
+  /*-moz-transitoin-duration: .5s;*/
+  /*-moz-transition-timing-function: linear;*/
+  /*-moz-transition-delay: .1s;*/
+  /*-webkit-transition-property: background-color;*/
+  /*-webkit-transitoin-duration: .5s;
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-delay: .1s;
+  -o-transition-property: background-color;
+  -o-transitoin-duration: .5s;
+  -o-transition-timing-function: linear;
+  -o-transition-delay: 0s;*/
+}
+#index_login a, #index_registration a {
+  text-decoration: none;
+  color: #66e3ff;
+  font-size: 1.4em;
+  text-align: center;
+}
+/* END: index.html */
+
+/* START: Loged in, Loged out & Registered success part. */
+#header_li_lo_rs {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  text-align: center;
+  padding: 0px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0px auto;
+  top: 10px;
+  left: auto;
+  width: 400px;
+  height: 40px;
+}
+#main_li_lo_rs {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 400px;
+  height: 120px;
+}
+#li_lo_rs_table {
+  position: relative;
+  top: 15px;
+  margin: auto;
+}
+/* Request for password change email sent -> page. */
+#header_request_email_sent {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  text-align: center;
+  padding: 0px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0px auto;
+  top: 10px;
+  left: auto;
+  width: 500px;
+  height: 40px;
+}
+#main_request_email_sent {
+  position: relative;
+  background-color: #191919;
+  padding: 0px;
+  border: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0px auto;
+  top: 0px;
+  left: auto;
+  width: 500px;
+  height: 130px;
+}
+#request_email_sent_table {
+  position: relative;
+  top: 15px;
+  margin: auto;
+}
+/* END: Loged in, Loged out & registration success part. */
+
+
+/* START: error handeling/styling in forms. */
+
+.error_div {
+  position: relative;
+  background-color: #ffffcc;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #007a00;
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  color: #007a00;
+  overflow: visible;
+  display: inline;
+  top: 160px;
+  left: 400px;
+}
+.error {
+  background-color: #ffffcc;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #007a00;
+  font-size: 12px;
+  color: #007a00;
+}
+
+ul.errorlist {
+  margin: 0px;
+  padding: 0px;
+}
+
+.errorlist li {
+  background-color: red;
+  color: white;
+  display: block;
+  font-size: 10px;
+  margin: 0px 0px 3px;
+  padding: 4px 5px;
+}
+/* END : error handeling/styling in forms. */

@@ -3,7 +3,8 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.contrib import auth
 from django.contrib.auth.models import User
-from django.utils import simplejson
+#from django.utils import simplejson
+import json
 from django.core.context_processors import csrf
 from django.core.mail import send_mail
 

@@ -1,14 +1,15 @@
 {% extends 'form_base.html' %}
+{% load staticfiles %}
 
 {% block title %}Registration Form{% endblock %}
 
 {% block datepicker %}
   <!-- This is only needed for Registration form. -->
-  <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui-1.8.16.custom.css" />
-  <script type="text/javascript" src="/static/js/jquery-ui-1.8.16.custom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui-1.8.16.custom.css' %}" />
+  <script type="text/javascript" src="{% static 'js/jquery-ui-1.8.16.custom.min.js' %}"></script>
 
   <!-- For Datepicker -->
-  <script type="text/javascript"> 
+  <script type="text/javascript">
     $(function() {
       // jQuery's Datepicker
       $('#datepicker').datepicker({
