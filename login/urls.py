@@ -3,6 +3,10 @@ from login.forms import PasswordResetForm, ChangePasswordForm
 
 urlpatterns = patterns('',
     url(r'^$', 'login.views.process_login', name='index'),
+    #url(r'^check-username/[?]u=(.+)$',
+    url(r'check-username/$',
+        'login.views.ajax_login_username_check',
+        name='ajax-usercheck'),  # AJAX
     #(r'^login-form/$', 'login.views.process_login'),
     #(r'^loged-in/$', 'login.views.loged_in', name='logedin'),
     #(r'^portrait-look/$', 'login.views.show_portrait', name='portrait'),

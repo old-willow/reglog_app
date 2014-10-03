@@ -13,7 +13,7 @@ class Country(models.Model):
 
 class User_Data(models.Model):
     '''
-    Custom Users Table.Here I store some additionl data
+    Custom Users Table. Here I store some additionl data
     from registred users which are not provided in default
     'auth_user' table.
     '''

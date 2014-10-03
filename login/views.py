@@ -15,8 +15,9 @@ from login.forms import LoginForm, PasswordResetForm, ChangePasswordForm
 
 
 def ajax_login_username_check(request):
-#    if request.is_ajax():
-#        print 'is ajax'
+    #print('ajax view function called')
+    if request.is_ajax():
+        print 'is ajax'
 
     c = {}
     #c.update(csrf(request))
@@ -26,19 +27,38 @@ def ajax_login_username_check(request):
     # HTTP_X_REQUEST_WITH = 'XMLHttpRequest', manualy
     # if I don't use libraries (i.e. JQuery)
     # CODE: if request.is_ajax: ??????????
-    if request.method == 'GET' and request.GET['u']:
-        searchfor = request.GET['u']
+    #if request.method == 'GET' and request.GET['u']:
+    searchfor = request.GET['u']
+    #print(searchfor)
+    #print(type(searchfor))
+    #user = User.objects.get(username=searchfor)
+    #if user:
+    #    print(user)
+    #    #print('User OK')
+    #    return HttpResponse('User OK')
+    #else:
+    #    print('ERROR')
 
-        try:
-            User.objects.get(username=searchfor)
+    #u = User.objects.get(username=searchfor)
+    try:
+        u = User.objects.get(username=searchfor)
+        print('Successfully accomplished query.')
+        print(u.last_name)
+    #    #if u:
+    #    #    print('There is a user name: ' + unicode(u.name))
+    #    #else:
+    #    #    print('There is NO user name: ' + unicode(u.name))
 
-        except User.DoesNotExist:
-            c = {'check': 'Error',}
-            return HttpResponse(simplejson.dumps(c), mimetype='application/javascript')
-#            return HttpResponse(str(c))
+    except User.DoesNotExist:
+        print('There is NO such user name')
+        c = {'check': 'Error', }
+        #return HttpResponse(simplejson.dumps(c), mimetype='application/javascript')
+        return HttpResponse('ERR')
 
-    c = {'check': 'OK',}
-    return HttpResponse(simplejson.dumps(c), mimetype='application/javascript')
+    c = {'check': 'OK', }
+    return HttpResponse('OK')
+    #return HttpResponse(simplejson.dumps(c), mimetype='application/javascript')
+    #return HttpResponse('No user found')
 
 
 def process_login(request):

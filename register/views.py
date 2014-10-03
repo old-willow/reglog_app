@@ -24,16 +24,18 @@ def process_register(request):
                                         'firstname': u'Kolozsi',
                                         'lastname': u'R\u006f\u0301bert',
                                         'username': u'robi',
-                                        'phone': u'024/542-683',
+                                        'phone': u'000/500-005',
                                         'countries': 197,
-                                        'address': u'Kizur I\u0073\u030ctvan 18,\n24000 Subotica',
+                                        'address': u'Bum Bam 18,\n2434 Smatica',
                                         'email': u'robert.kolozsi@gmail.com',
-                                        'datepicker': u'1973-04-08',
+                                        'datepicker': u'1971-01-01',
                                         'note': u'Nothing special. Just something about me.',
                                       })
 
-    context = { 'form': form,
-                'formname': 'Registration' }
+    context = {
+        'form': form,
+        'formname': 'Registration'
+    }
 
     return render_to_response('register/working_register_template.html',
                               context,

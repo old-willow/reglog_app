@@ -12,16 +12,25 @@ function check_username_existance() {
   //xhr_username.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
   //xhr_username.setRequestHeader('HTTP-X-REQUEST-WITH', 'XMLHttpRequest');
   //xhr_username.send(username=login_username.value);
+  //xhr_username.send(null);
   xhr_username.send(null);
 
-  function remove_warning(node) {
+  //login_username.addEventListener('change', remove_warning_no_such_user, false);
+
+  //function remove_warning(node) {
+  //    if (node.lastChild.nodeName === 'TD') {
+  //      //console.log('This is the subject node: ' + startNode.lastChild.nodeName);
+  //      //console.log('I\'m removing the warning node!');
+  //      node.removeChild(node.lastChild);
+  //      //console.log('I\'ve removed the warning node!');
+  //    }
+  //    return;
+  //}
+
+  function remove_warning_no_such_user(node) {
       if (node.lastChild.nodeName === 'TD') {
-        //console.log('This is the subject node: ' + startNode.lastChild.nodeName);
-        //console.log('I\'m removing the warning node!');
         node.removeChild(node.lastChild);
-        //console.log('I\'ve removed the warning node!');
       }
-      return;
   }
 
   var td;
@@ -29,7 +38,7 @@ function check_username_existance() {
 
   // This is the first TR child node of TBODY node.
   // The start point for traversing node tree.
-  var startNode = login_username.parentNode.parentNode; 
+  var startNode = login_username.parentNode.parentNode;
   //console.log(startNode);
   //console.log(startNode.nodeName);
 
@@ -42,15 +51,24 @@ function check_username_existance() {
       return;
     }
 
-    if (xhr_username.responseText === '{"check": "OK"}') {
+    // I expect this text to be returned if everything is working well from django view
+    // 'ajax_login_username_check()' function.
+    var return_text = "OK";
+
+    if (xhr_username.responseText === return_text) {
       // If user exist then remove the warning notification.
-      remove_warning(startNode);
+      remove_warning_no_such_user(startNode);
       return xhr_username;
 
     } else {
-      // If user does't exist then remove the previous warning notification.
-      remove_warning(startNode);
+      // If user does't exist then remove the previous warning notification if warning exists.
+      remove_warning_no_such_user(startNode);
 
+      create_warning_no_such_user();
+    }
+  }
+
+  function create_warning_no_such_user(node) {
       // Create new warning if no such user!
       td = document.createElement('td');
       warn = document.createElement('p');
@@ -67,7 +85,6 @@ function check_username_existance() {
       login_username.focus();
 
       return;
-    }
   }
 }
 
