@@ -17,10 +17,10 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $("#index_login").click(function() {
-       window.location.href = "/login/login-form/" 
+          window.location.href = "{% url "login:index" %}"
       });
       $("#index_registration").click(function() {
-       window.location.href = "/register/register-form/" 
+          window.location.href = "{% url "register:index" %}"
       });
     });
   </script>
@@ -31,10 +31,10 @@
 
 <div id="index_main_div">
   <div id="index_login">
-    <a href="/login/login-form/">Login</a>
+      <a href="{% url "login:index" %}">Login</a>
   </div>
   <div id="index_registration">
-    <a href="/register/register-form/">Registration</a>
+      <a href="{% url "register:index" %}">Registration</a>
   </div>
 </div>
 
