@@ -8,6 +8,8 @@ import json
 from django.core.context_processors import csrf
 from django.core.mail import send_mail
 
+from django.core.urlresolvers import reverse, resolve
+
 from django.contrib.auth.views import password_reset, password_reset_complete
 
 from register.models import User_Data
@@ -101,7 +103,7 @@ def process_login(request):
         'formname': 'Login',
     }
 
-    return render_to_response('login/working_login_template.html',
+    return render_to_response('login/login-index.html',
                               context,
                               context_instance=RequestContext(request))
 
