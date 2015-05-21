@@ -5,6 +5,7 @@ urlpatterns = patterns('',
     url(r'^$', 'login.views.process_login', name='index'),
     #url(r'^check-username/[?]u=(.+)$',
     url(r'check-username/$',
+        #'login.views.dummy_ajax',
         'login.views.ajax_login_username_check',
         name='ajax-usercheck'),  # AJAX
     #(r'^login-form/$', 'login.views.process_login'),

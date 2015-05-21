@@ -7,13 +7,18 @@ login_username.addEventListener('blur', check_username_existance, false);
 function check_username_existance() {
   xhr_username = new XMLHttpRequest();
   xhr_username.onreadystatechange = username_exists;
+  /*  *
+   *  * IMPORTANT: when definig url for open function don't type in the beginning slash character!!!!!
+   *  */
   //xhr_username.open('POST', '/check-username/', true);
-  xhr_username.open('GET', '/check-username/?u=' + login_username.value, true);
+  xhr_username.open('GET', 'check-username/?u=' + login_username.value, true);
+  //xhr_username.open('GET', 'check-username/', true);
+  //xhr_username.open('GET', '{% url "login:ajax_checkusername" %}?u=' + login_username.value, true);
   //xhr_username.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
   //xhr_username.setRequestHeader('HTTP-X-REQUEST-WITH', 'XMLHttpRequest');
   //xhr_username.send(username=login_username.value);
-  //xhr_username.send(null);
   xhr_username.send(null);
+  //xhr_username.send('');  // According to docs it has to be empty string, because data is sent by GET and it is in the url allready.
 
   //login_username.addEventListener('change', remove_warning_no_such_user, false);
 
@@ -51,7 +56,7 @@ function check_username_existance() {
       return;
     }
 
-    // I expect this text to be returned if everything is working well from django view
+    // I expect this text to be returned if everything is working well to django view
     // 'ajax_login_username_check()' function.
     var return_text = "OK";
 
