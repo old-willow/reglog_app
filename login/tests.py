@@ -79,3 +79,18 @@ class AjaxRequestTest(TestCase):
         #find = resolve('/login/check-username/?u=mufurc')
         #self.assertEqual(find.func, ajax_login_username_check)
         self.assertEqual('ERR', response.content)
+
+
+class LoginTest(TestCase):
+    def setUp(self):
+        self.client = Client(enforces_csrf_checks=True)
+
+    def test_login_with_correct_username(self):
+        """Test if login with correct username."""
+        response = self.client.get('/login/', username='robi', password='robi')
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_with_incorrect_username(self):
+        """Test if login with incorrect username."""
+        response = self.client.get('/login/', username='bubi', password='bubi')
+        self.assertEqual(response.status_code, 200)
