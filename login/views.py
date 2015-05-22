@@ -102,6 +102,12 @@ def forgot_password_context_processor(request):
 
     }
 
+def forgot_password(request):
+    context = {}
+    return render_to_response(
+        'login/forgot_password.html',
+        context,
+        context_instance=RequestContext(request))
 
 def loged_in(request):
     #path = User_Data.objects.get()
