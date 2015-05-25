@@ -65,9 +65,9 @@
       <td>
         {% comment %}{% url reglog.register.views.process_register as register %}{% endcomment %}
         {% comment %}<a href="{% url 'register' %}">Not Registered?</a>{% endcomment %}
-        <a href="{% url "register:index" %}">Not Registered?</a>
+        <a href="{% url 'register:index' %}">Not Registered?</a>
           <br />
-          <a href="/login/password/reset/">Forgot a password?</a>
+          <a href="{% url 'login:password-reset-request' %}">Forgot a password?</a>
           <br />
           <a href="/"><span style="color:#006600; font-size:1.8em;">home</span></a>
         </td>

@@ -3,6 +3,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib.auth import views
 #from django.utils import simplejson
 import json
 from django.core.context_processors import csrf
@@ -108,6 +109,27 @@ def forgot_password(request):
         'login/forgot_password.html',
         context,
         context_instance=RequestContext(request))
+
+
+def password_reset(request, template_name, password_reset_form):
+    """
+    This uses password-reset-request url name.
+    """
+    template_response = views.password_reset(request,
+                                             template_name=template_name,
+                                             password_reset_form=password_reset_form)
+
+    return template_response
+
+
+def password_reset_done(request, template_name):
+    """This view is called after email with a link  was sent to the user."""
+    pass
+
+
+def password_reset_succesfully_changed(request):
+    pass
+
 
 def loged_in(request):
     #path = User_Data.objects.get()

@@ -91,5 +91,14 @@ if DEBUG:
         os.path.join(BASE_DIR, 'static'),
         '/home/robi/venv/reglog/reglog_app/static/'
     )
+
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_USE_TLS = False
+    DEFAULT_FROM_EMAIL = 'testing@example.com'
+
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #STATIC_ROOT = '/home/robi/venv/reglog/reglog_app/static/'
+
