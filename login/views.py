@@ -111,6 +111,7 @@ def forgot_password(request):
         context_instance=RequestContext(request))
 
 
+@csrf_protect
 def password_reset(request, template_name, password_reset_form):
     """
     This uses password-reset-request url name.
