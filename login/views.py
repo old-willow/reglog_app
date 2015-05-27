@@ -112,20 +112,19 @@ def forgot_password(request):
 
 
 @csrf_protect
-def password_reset(request, template_name, password_reset_form):
+def password_reset(request):
     """
     This uses password-reset-request url name.
     """
-        #{'template_name': 'login/password_reset_form.html',
-        # 'password_reset_form': PasswordResetForm },
     template_response = views.password_reset(request,
                                              template_name='login/password_reset_form.html',
-                                             password_reset_form=PasswordResetForm )
+                                             post_reset_redirect='login:password_reset_done',
+                                             password_reset_form=PasswordResetForm)
 
     return template_response
 
 
-def password_reset_done(request, template_name):
+def password_reset_done(request):
     """
     This view is called after email with a link  was sent to the user.
     Returns template response too.

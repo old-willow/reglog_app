@@ -22,28 +22,19 @@ urlpatterns = patterns('',
 
     # For resetting a password (user has lost his password).
     # view: password_reset
-    #url(r'password_reset_request/$',
-    #    'login.views.password_reset',
-    #    #{'template_name': 'login/password_reset_form.html',
-    #    # 'password_reset_form': PasswordResetForm },
-    #    name='password_reset_request'),
 
     url(r'password_reset/$',
-        'django.contrib.auth.views.password_reset',
-        {'template_name': 'login/password_reset_form.html',
-         'post_reset_redirect': 'login:password_reset_done',
-         'password_reset_form': PasswordResetForm },
+        'login.views.password_reset',
+        #'django.contrib.auth.views.password_reset',
+        #{'template_name': 'login/password_reset_form.html',
+        # 'post_reset_redirect': 'login:password_reset_done',
+        # 'password_reset_form': PasswordResetForm },
         name='password_reset'),
 
-    # view: password_reset_done
-    #url(r'password_reset_done/$',
-    #   'login.views.password_reset_done',
-    #   #{'template_name': 'login/password_reset_done.html'},
-    #   name='password_reset_done'),
-
     url(r'password_reset/done/$',
-       'django.contrib.auth.views.password_reset_done',
-       {'template_name': 'login/password_reset_done.html'},
+       'login.views.password_reset_done',
+       #'django.contrib.auth.views.password_reset_done',
+       #{'template_name': 'login/password_reset_done.html'},
        name='password_reset_done'),
 
     # view: password_reset_confirm
