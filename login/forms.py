@@ -39,7 +39,7 @@ class PasswordResetForm(forms.Form):
     """ Forgot Password Form """
     email = forms.EmailField(label='e-mail:')
 
-    # I need these for template substitution.
+    # I need these for substitution of text in template.
     formname = 'Password Reset Form'
     formname2 = 'password_reset_form'
 
@@ -52,8 +52,15 @@ class PasswordResetForm(forms.Form):
 
         return self.cleaned_data['email']
 
-    def save(self, domain_override=None, email_template_name='registration/password_reset_email.html',
-             use_https=False, token_generator=default_token_generator):
+    def save(self,
+             request,
+             from_email=None,
+             subject_template_name=None,
+             domain_override=None,
+             html_email_template_name='login/password_reset_email.html',
+             email_template_name='login/password_reset_email.html',
+             use_https=False,
+             token_generator=default_token_generator):
         """
         Generates a one-use only link for resetting password and sends to the user
         """
