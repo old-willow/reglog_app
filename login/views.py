@@ -115,16 +115,24 @@ def password_reset(request, template_name, password_reset_form):
     """
     This uses password-reset-request url name.
     """
+        #{'template_name': 'login/password_reset_form.html',
+        # 'password_reset_form': PasswordResetForm },
     template_response = views.password_reset(request,
-                                             template_name=template_name,
-                                             password_reset_form=password_reset_form)
+                                             template_name='login/password_reset_form.html',
+                                             password_reset_form=PasswordResetForm )
 
     return template_response
 
 
 def password_reset_done(request, template_name):
-    """This view is called after email with a link  was sent to the user."""
-    pass
+    """
+    This view is called after email with a link  was sent to the user.
+    Returns template response too.
+    """
+    template_response = views.password_reset_done(request,
+                                                  template_name='login/password_reset_done.html')
+
+    return template_response
 
 
 def password_reset_succesfully_changed(request):

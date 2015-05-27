@@ -22,33 +22,45 @@ urlpatterns = patterns('',
 
     # For resetting a password (user has lost his password).
     # view: password_reset
-    url(r'password-reset-request/$',
-        'login.views.password_reset',
+    #url(r'password_reset_request/$',
+    #    'login.views.password_reset',
+    #    #{'template_name': 'login/password_reset_form.html',
+    #    # 'password_reset_form': PasswordResetForm },
+    #    name='password_reset_request'),
+
+    url(r'password_reset/$',
+        'django.contrib.auth.views.password_reset',
         {'template_name': 'login/password_reset_form.html',
+         'post_reset_redirect': 'login:password_reset_done',
          'password_reset_form': PasswordResetForm },
-        name='password-reset-request'),
+        name='password_reset'),
 
     # view: password_reset_done
-    url(r'password-reset-done/$',
-       'login.views.password_reset_done',
+    #url(r'password_reset_done/$',
+    #   'login.views.password_reset_done',
+    #   #{'template_name': 'login/password_reset_done.html'},
+    #   name='password_reset_done'),
+
+    url(r'password_reset/done/$',
+       'django.contrib.auth.views.password_reset_done',
        {'template_name': 'login/password_reset_done.html'},
-       name='password-reset-done'),
+       name='password_reset_done'),
 
     # view: password_reset_confirm
-    url(r'^password-reset-confirm/(?P<uidb36>[0-9A-Za-z]{1,13})-(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    url(r'^password_reset_confirm/(?P<uidb36>[0-9A-Za-z]{1,13})-(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         'django.contrib.auth.views.password_reset_confirm',
         {'template_name': 'login/password_reset_confirm.html',
          'set_password_form': ChangePasswordForm },
-         name='password-reset-confirm'),
+         name='password_reset_confirm'),
 
     # view: password_reset_complete
     url(r'^password/reset/complete/$',
         'django.contrib.auth.views.password_reset_complete',
         {'template_name': 'login/password_reset_complete.html'},
-        name='password-reset-complete'),
+        name='password_reset_complete'),
 
     # view: password_reset_succesfully_changed
-    url(r'^password-successfully-changed/$',
+    url(r'^password_successfully_changed/$',
         'login.views.password_reset_succesfully_changed',
-         name='password-reset-succefully-changed'),
+         name='password_reset_succefully_changed'),
 )
