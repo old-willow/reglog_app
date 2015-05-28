@@ -96,7 +96,9 @@ if DEBUG:
     )
 
     EMAIL_HOST = 'smtp.gmail.com'
+    #EMAIL_HOST = 'smtp.eunet.rs'
     EMAIL_PORT = 587
+    #EMAIL_PORT = 25
     EMAIL_HOST_USER = ''  #  Google account email.
     EMAIL_HOST_PASSWORD = ''  #  Add password for google account.
     EMAIL_USE_TLS = True
