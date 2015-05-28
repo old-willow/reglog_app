@@ -118,6 +118,7 @@ def password_reset(request):
     """
     template_response = views.password_reset(request,
                                              template_name='login/password_reset_form.html',
+                                             email_template_name='login/password_reset_email.html',
                                              post_reset_redirect='login:password_reset_done',
                                              password_reset_form=PasswordResetForm)
 
