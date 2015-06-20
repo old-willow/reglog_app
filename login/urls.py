@@ -51,10 +51,10 @@ urlpatterns = patterns('',
     #    name='password_reset_confirm'),
 
     # view: password_reset_complete
-    #url(r'^password/reset/complete/$',
-    #    'django.contrib.auth.views.password_reset_complete',
-    #    {'template_name': 'login/password_reset_complete.html'},
-    #    name='password_reset_complete'),
+    url(r'^password/reset/complete/$',
+        'django.contrib.auth.views.password_reset_complete',
+        {'template_name': 'login/password_reset_complete.html'},
+        name='password_reset_complete'),
 
     # view: password_reset_succesfully_changed
     #url(r'^password_successfully_changed/$',
