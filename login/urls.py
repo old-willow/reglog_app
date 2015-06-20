@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, include, url
-from login.forms import PasswordResetForm, ChangePasswordForm
+from django.conf.urls import patterns, url
+#from login.forms import PasswordResetForm, ChangePasswordForm
+from login.forms import ChangePasswordForm
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', 'login.views.process_login', name='index'),
 
     url(r'dummy-ajax/$',
@@ -32,18 +34,18 @@ urlpatterns = patterns('',
         name='password_reset'),
 
     url(r'password_reset/done/$',
-       'login.views.password_reset_done',
-       #'django.contrib.auth.views.password_reset_done',
-       #{'template_name': 'login/password_reset_done.html'},
-       name='password_reset_done'),
+        'login.views.password_reset_done',
+        #'django.contrib.auth.views.password_reset_done',
+        #{'template_name': 'login/password_reset_done.html'},
+        name='password_reset_done'),
 
     # view: password_reset_confirm
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         'django.contrib.auth.views.password_reset_confirm',
         {'template_name': 'login/password_reset_confirm.html',
          'post_reset_redirect': 'login:password_reset_complete',
-         'set_password_form': ChangePasswordForm },
-         name='password_reset_confirm'),
+         'set_password_form': ChangePasswordForm},
+        name='password_reset_confirm'),
 
     # Original
     #url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
