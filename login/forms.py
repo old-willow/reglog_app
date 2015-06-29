@@ -88,7 +88,10 @@ class PasswordResetForm(forms.Form):
 
 
 class ChangePasswordForm(forms.Form):
-    """ Change Password Form. """
+    """
+    This form is for changeing password.
+    It represents two textboxes for entering and confirming new password.
+    """
     new_password1 = forms.CharField(widget=forms.PasswordInput,
                                     label='New Password:')
 
