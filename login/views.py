@@ -1,20 +1,21 @@
 from django.shortcuts import render_to_response
-from django.http import Http404, HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse  # Http404
 from django.template import RequestContext
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth import views
 #from django.utils import simplejson
-import json
-from django.core.context_processors import csrf
+#import json
+#from django.core.context_processors import csrf
 
 from django.views.decorators.csrf import csrf_protect
 
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
 
-from django.core.urlresolvers import reverse, resolve
+#from django.core.urlresolvers import reverse, resolve
 
-from django.contrib.auth.views import password_reset, password_reset_complete
+from django.contrib.auth.views import (password_reset, password_reset_complete,
+                                       password_reset_confirm)
 
 from register.models import User_Data
 from login.forms import LoginForm, PasswordResetForm, ChangePasswordForm
@@ -23,6 +24,7 @@ from login.forms import LoginForm, PasswordResetForm, ChangePasswordForm
 def dummy_ajax(request):
     print "I called dummy, ajax after blur from username field on form."
     return HttpResponse("OK")
+
 
 @csrf_protect
 def ajax_login_username_check(request):
@@ -43,7 +45,8 @@ def ajax_login_username_check(request):
             return HttpResponse('ERR')
 
     c = {'check': 'OK', }
-    return HttpResponse('OK')
+    #return HttpResponse('OK')
+    return HttpResponse(c)
 
 
 def process_login(request):
@@ -79,7 +82,7 @@ def process_login(request):
                 return HttpResponseRedirect('/login/login-error/')
 
     else:
-        form = LoginForm() # An unbound form.
+        form = LoginForm()  # An unbound form.
 
     context = {
         'form': form,
@@ -92,9 +95,9 @@ def process_login(request):
 
 
 def process_logout(request):
-   auth.logout(request)
+    auth.logout(request)
 
-   return HttpResponseRedirect('/login/loged-out/')
+    return HttpResponseRedirect('/login/loged-out/')
 
 
 def forgot_password_context_processor(request):
@@ -102,6 +105,7 @@ def forgot_password_context_processor(request):
         'formname2': 'Forgot Password',
 
     }
+
 
 def forgot_password(request):
     context = {}
@@ -136,16 +140,21 @@ def password_reset_done(request):
 
     return template_response
 
-"""
-password_reset_confirm function is used from django.
-This function presents a form for entering a new password.
-"""
 
+#def password_reset_confirm(request):
+#    """
+#    password_reset_confirm function is used from django.
+#    This function presents a form for entering a new password.
+#    """
+#    template_response = views.password_reset_confirm(request,
+#                                                     token_generator=default_token_generator,
+#
+#                                                    )
 
-"""
-password_reset_complete.
-Presents a view which informs the user that the password has been successfully changed.
-"""
+#"""
+#password_reset_complete.
+#Presents a view which informs the user that the password has been successfully changed.
+#"""
 
 def password_reset_succesfully_changed(request):
     pass
