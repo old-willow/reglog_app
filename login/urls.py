@@ -42,8 +42,8 @@ urlpatterns = patterns(
     # view: password_reset_confirm
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         'django.contrib.auth.views.password_reset_confirm',
-        {'template_name': 'login/password_reset_confirm.html',
-         'post_reset_redirect': 'login:password_reset_complete',
+        # 'template_name': 'login/password_reset_confirm.html',
+        {'post_reset_redirect': 'login:password_reset_complete',
          'set_password_form': ChangePasswordForm},
         name='password_reset_confirm'),
 

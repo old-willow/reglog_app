@@ -127,6 +127,7 @@ def password_reset(request):
 
 def password_reset_done(request):
     """
+    The page  shown after a user has been emailed a link to reset their password.
     This view is called after email with a link  was sent to the user.
     Returns template response too.
     """
@@ -135,6 +136,16 @@ def password_reset_done(request):
 
     return template_response
 
+"""
+password_reset_confirm function is used from django.
+This function presents a form for entering a new password.
+"""
+
+
+"""
+password_reset_complete.
+Presents a view which informs the user that the password has been successfully changed.
+"""
 
 def password_reset_succesfully_changed(request):
     pass

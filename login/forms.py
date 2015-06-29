@@ -1,8 +1,8 @@
 from django import forms
-from django.contrib.auth.models import User # Important for hashing passwords!
-                                            # And for using built in table, extending by my own data.
+from django.contrib.auth.models import User  # Important for hashing passwords!
+                                             # And for using built in table, extending by my own data.
 
-from register.models import User_Data
+#from register.models import User_Data
 
 from django.contrib.sites.models import Site
 from django.template import Context, loader
@@ -29,8 +29,9 @@ class LoginForm(forms.Form):
             User.objects.get(username=self.cleaned_data['username'])
 
         except User.DoesNotExist:
-            raise forms.ValidationError(
-            'The user ' + str(self.cleaned_data['username']) + ' is not registered yet!')
+            raise forms.ValidationError('The user ' +
+                                        str(self.cleaned_data['username']) +
+                                        ' is not registered yet!')
 
         return self.cleaned_data['username']
 
@@ -83,7 +84,7 @@ class PasswordResetForm(forms.Form):
                 'protocol': use_https and 'https' or 'http',
             }
             send_mail(_("Password reset on %s") % site_name,
-                t.render(Context(c)), None, [user.email])
+                      t.render(Context(c)), None, [user.email])
 
 
 class ChangePasswordForm(forms.Form):
@@ -119,4 +120,3 @@ class ChangePasswordForm(forms.Form):
         if commit:
             self.user.save()
         return self.user
-
