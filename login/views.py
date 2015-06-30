@@ -28,7 +28,7 @@ def dummy_ajax(request):
 
 @csrf_protect
 def ajax_login_username_check(request):
-    c = {}
+    #c = {}
     #c.update(csrf(request))
 
     if request.method == 'GET' and request.GET['u']:
@@ -41,12 +41,12 @@ def ajax_login_username_check(request):
 
         except User.DoesNotExist:
             print('There is NO such user name')
-            c = {'check': 'Error', }
+            #c = {'check': 'Error', }
             return HttpResponse('ERR')
 
-    c = {'check': 'OK', }
-    #return HttpResponse('OK')
-    return HttpResponse(c)
+    #c = {'check': 'OK', }
+    return HttpResponse('OK')
+    #return HttpResponse(c)
 
 
 def process_login(request):
