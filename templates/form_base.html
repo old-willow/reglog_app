@@ -35,12 +35,19 @@
   {% endcomment %}
 
   <div id="main_{% if formname %}{{ formname|lower }}{% else %}{{ form.formname2 }}{% endif %}_div">
+
   {% if form.is_multipart %}
+
   <form enctype="multipart/form-data" action="" method="post" onSubmit="return validate_{% if formname %}{{ formname|lower }}{% else %}{{ form.formname2 }}{% endif %}_form();">
+
   {% else %}
-    <form action="" method="post" onSubmit="return validate_{{ formname|lower }}_form()">
+
+  <form action="" method="post" onSubmit="return validate_{{ formname|lower }}_form()">
+
   {% endif %}
+
   {% csrf_token %}
+
     <table id="{% if formname %}{{ formname|lower }}{% else %}{{ form.formname2 }}{% endif %}_table">
       {% block form %}
       {% endblock form %}
