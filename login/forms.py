@@ -92,15 +92,11 @@ class ChangePasswordForm(forms.Form):
     This form is for changeing password.
     It represents two textboxes for entering and confirming new password.
     """
-    new_password1 = forms.CharField(widget=forms.PasswordInput,
-                                    label='New Password:')
+    new_password1 = forms.CharField(label='New Password:',
+                                    widget=forms.PasswordInput)
 
-    new_password2 = forms.CharField(widget=forms.PasswordInput,
-                                    label='Confirm New Password:')
-
-    # I need these for template substitution.
-    formname = 'Password Reset Confirm'
-    formname2 = 'password_reset_confirm'
+    new_password2 = forms.CharField(label='Confirm New Password:',
+                                    widget=forms.PasswordInput)
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
