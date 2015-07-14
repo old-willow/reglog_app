@@ -124,7 +124,8 @@ def password_reset(request):
                                              template_name='login/password_reset_form.html',
                                              email_template_name='login/password_reset_email.html',
                                              post_reset_redirect='login:password_reset_done',
-                                             password_reset_form=PasswordResetForm)
+                                             password_reset_form=PasswordResetForm,
+                                             current_app='login')
 
     return template_response
 
@@ -136,7 +137,8 @@ def password_reset_done(request):
     Returns template response too.
     """
     template_response = views.password_reset_done(request,
-                                                  template_name='login/password_reset_done.html')
+                                                  template_name='login/password_reset_done.html',
+                                                  current_app='login')
 
     return template_response
 
