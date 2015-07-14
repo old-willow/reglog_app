@@ -1,6 +1,9 @@
 from django.conf.urls import patterns, url
 #from login.forms import PasswordResetForm, ChangePasswordForm
-from login.forms import ChangePasswordForm
+from login import forms
+
+#from django.contrib.auth.forms import SetPasswordForm
+
 
 urlpatterns = patterns(
     '',
@@ -24,6 +27,8 @@ urlpatterns = patterns(
 
     # For resetting a password (user has lost his password).
     # view: password_reset
+    # This view presents the form for typing in the email address to which will
+    # be sent a one time usable link.
 
     url(r'password_reset/$',
         'login.views.password_reset',
@@ -33,6 +38,9 @@ urlpatterns = patterns(
         # 'password_reset_form': PasswordResetForm },
         name='password_reset'),
 
+    # The view which show the page after a user has been emailed a link to
+    # reset the password. This view is called by default if password_reset()
+    # view doesn't have an explicit post_reset_redirect URL set.
     url(r'password_reset/done/$',
         'login.views.password_reset_done',
         #'django.contrib.auth.views.password_reset_done',
@@ -42,9 +50,13 @@ urlpatterns = patterns(
     # view: password_reset_confirm
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         'django.contrib.auth.views.password_reset_confirm',
-        # 'template_name': 'login/password_reset_confirm.html',
-        {'post_reset_redirect': 'login:password_reset_complete',
-         'set_password_form': ChangePasswordForm},
+        {'template_name': 'login/password_reset_confirm.html',
+        #{'template_name': 'registration/password_reset_confirm.html',
+        'post_reset_redirect': 'login:password_reset_complete',
+        'set_password_form': forms.ChangePasswordForm,
+        #'set_password_form': SetPasswordForm,
+        'extra_context': {'formname': 'Password Reset Confirmation',
+                          'formname2': 'password_reset_confirm'}},
         name='password_reset_confirm'),
 
     # Original
@@ -53,7 +65,7 @@ urlpatterns = patterns(
     #    name='password_reset_confirm'),
 
     # view: password_reset_complete
-    url(r'^password/reset/complete/$',
+    url(r'^password/done/$',
         'django.contrib.auth.views.password_reset_complete',
         {'template_name': 'login/password_reset_complete.html'},
         name='password_reset_complete'),
