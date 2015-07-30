@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, url
 #from login.forms import PasswordResetForm, ChangePasswordForm
-from login import forms
+#from login import forms
 
-#from django.contrib.auth.forms import SetPasswordForm
+from django.contrib.auth.forms import SetPasswordForm
 
 
 urlpatterns = patterns(
@@ -31,10 +31,11 @@ urlpatterns = patterns(
     # be sent a one time usable link.
 
     url(r'password_reset/$',
-        'login.views.password_reset',
-        #'django.contrib.auth.views.password_reset',
+        #'login.views.password_reset',
+        'django.contrib.auth.views.password_reset',
         #{'template_name': 'login/password_reset_form.html',
-        # 'post_reset_redirect': 'login:password_reset_done',
+        {'email_template_name': 'login/password_reset_email.html',
+         'post_reset_redirect': 'login:password_reset_done'},
         # 'password_reset_form': PasswordResetForm },
         name='password_reset'),
 
@@ -50,13 +51,15 @@ urlpatterns = patterns(
     # view: password_reset_confirm
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         'django.contrib.auth.views.password_reset_confirm',
+        #'login.views.password_reset_confirm',
         {'template_name': 'login/password_reset_confirm.html',
         #{'template_name': 'registration/password_reset_confirm.html',
-        'post_reset_redirect': 'login:password_reset_complete',
-        'set_password_form': forms.ChangePasswordForm,
-        #'set_password_form': SetPasswordForm,
-        'extra_context': {'formname': 'Password Reset Confirmation',
-                          'formname2': 'password_reset_confirm'}},
+         'post_reset_redirect': 'login:password_reset_complete',
+        #{'post_reset_redirect': '/reset/done/'},
+        #'set_password_form': forms.ChangePasswordForm},
+        'set_password_form': SetPasswordForm},
+        #'extra_context': {'formname': 'Password Reset Confirmation',
+        #                  'formname2': 'password_reset_confirm'}},
         name='password_reset_confirm'),
 
     # Original
@@ -65,7 +68,7 @@ urlpatterns = patterns(
     #    name='password_reset_confirm'),
 
     # view: password_reset_complete
-    url(r'^password/done/$',
+    url(r'^reset/done/$',
         'django.contrib.auth.views.password_reset_complete',
         {'template_name': 'login/password_reset_complete.html'},
         name='password_reset_complete'),
