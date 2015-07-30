@@ -5,3 +5,4 @@ session-reglog-app.vim
 *.swo
 
 templates-old/
+test_reset/
