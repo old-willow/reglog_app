@@ -31,11 +31,11 @@ urlpatterns = patterns(
     # be sent a one time usable link.
 
     url(r'password_reset/$',
-        #'login.views.password_reset',
-        'django.contrib.auth.views.password_reset',
+        'login.views.password_reset',
+        #'django.contrib.auth.views.password_reset',
         #{'template_name': 'login/password_reset_form.html',
-        {'email_template_name': 'login/password_reset_email.html',
-         'post_reset_redirect': 'login:password_reset_done'},
+        #{'email_template_name': 'login/password_reset_email.html',
+        # 'post_reset_redirect': 'login:password_reset_done'},
         # 'password_reset_form': PasswordResetForm },
         name='password_reset'),
 
@@ -43,19 +43,19 @@ urlpatterns = patterns(
     # reset the password. This view is called by default if password_reset()
     # view doesn't have an explicit post_reset_redirect URL set.
     url(r'password_reset/done/$',
-        #'login.views.password_reset_done',
-        'django.contrib.auth.views.password_reset_done',
+        'login.views.password_reset_done',
+        #'django.contrib.auth.views.password_reset_done',
         #{'template_name': 'login/password_reset_done.html'},
         name='password_reset_done'),
 
     # view: password_reset_confirm
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        'django.contrib.auth.views.password_reset_confirm',
-        #'login.views.password_reset_confirm',
+        #'django.contrib.auth.views.password_reset_confirm',
+        'login.views.password_reset_confirm',
         #{'template_name': 'login/password_reset_confirm.html',
         #{'template_name': 'registration/password_reset_confirm.html',
         # 'post_reset_redirect': 'login:password_reset_complete',
-        {'post_reset_redirect': 'login:password_reset_complete'},
+        #{'post_reset_redirect': 'login:password_reset_complete'},
         #'set_password_form': forms.ChangePasswordForm},
         #'set_password_form': SetPasswordForm},
         #'extra_context': {'formname': 'Password Reset Confirmation',

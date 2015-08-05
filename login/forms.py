@@ -8,7 +8,9 @@ from django.contrib.sites.models import Site
 from django.template import Context, loader
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.translation import ugettext_lazy as _
-from django.utils.http import int_to_base36
+#from django.utils.http import int_to_base36
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
 
 
 class LoginForm(forms.Form):
@@ -78,7 +80,8 @@ class PasswordResetForm(forms.Form):
                 'email': user.email,
                 'domain': domain,
                 'site_name': site_name,
-                'uid': int_to_base36(user.id),
+                #'uid': int_to_base36(user.id),
+                'uid': urlsafe_base64_encode(force_bytes(user.id)),  # this was the BUGGGGHHH!
                 'user': user,
                 'token': token_generator.make_token(user),
                 'protocol': use_https and 'https' or 'http',

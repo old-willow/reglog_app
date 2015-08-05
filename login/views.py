@@ -155,7 +155,7 @@ def password_reset_confirm(request, uidb64, token):
                                                      token_generator=default_token_generator,
                                                      template_name='login/password_reset_confirm.html',
                                                      #template_name='registration/password_reset_confirm.html',
-                                                     post_reset_redirect='password_reset_complete',
+                                                     post_reset_redirect='login:password_reset_complete',
                                                      set_password_form=ChangePasswordForm,
                                                      extra_context={'formname': 'Password Reset Confirmation',
                                                                     'formname2': 'password_reset_confirm'}
