@@ -26,7 +26,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', ]
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'home',
     'login',
     'register',
+    #'test_reset',
 )
 
 SITE_ID = 1
@@ -90,6 +91,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 if DEBUG:
+    #PASSWORD_RESET_TIMEOUT_DAYS = 3
+
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
         '/home/robi/venv/reglog/reglog_app/static/'
@@ -99,13 +102,12 @@ if DEBUG:
     #EMAIL_HOST = 'smtp.eunet.rs'
     EMAIL_PORT = 587
     #EMAIL_PORT = 25
-    EMAIL_HOST_USER = ''  #  Google account email.
-    EMAIL_HOST_PASSWORD = ''  #  Add password for google account.
+    EMAIL_HOST_USER = 'robert.kolozsi@gmail.com'  # Google account email.
+    EMAIL_HOST_PASSWORD = ''  # Add password for google account.
     EMAIL_USE_TLS = True
 
-    #DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
     #SERVER_EMAIL = EMAIL_HOST_USER
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #STATIC_ROOT = '/home/robi/venv/reglog/reglog_app/static/'
-
