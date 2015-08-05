@@ -126,7 +126,7 @@ def password_reset(request):
     template_response = views.password_reset(request,
                                              template_name='login/password_reset_form.html',
                                              email_template_name='login/password_reset_email.html',
-                                             post_reset_redirect=reverse('login:password_reset_done'),
+                                             post_reset_redirect='login:password_reset_done',
                                              password_reset_form=PasswordResetForm,
                                              current_app='login')
 
@@ -146,16 +146,16 @@ def password_reset_done(request):
     return template_response
 
 
-def password_reset_confirm(request, uidb64=None, token=None):
+def password_reset_confirm(request, uidb64, token):
     """
     password_reset_confirm function is used from django.
     This function presents a form for entering a new password.
     """
     template_response = views.password_reset_confirm(request, uidb64=uidb64, token=token,
                                                      token_generator=default_token_generator,
-                                                     #template_name='login/password_reset_confirm.html',
+                                                     template_name='login/password_reset_confirm.html',
                                                      #template_name='registration/password_reset_confirm.html',
-                                                     post_reset_redirect=reverse('login:password_reset_complete'),
+                                                     post_reset_redirect='password_reset_complete',
                                                      set_password_form=ChangePasswordForm,
                                                      extra_context={'formname': 'Password Reset Confirmation',
                                                                     'formname2': 'password_reset_confirm'}
