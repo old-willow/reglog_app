@@ -452,9 +452,10 @@ ul.errorlist {
 .errorlist li {
   background-color: red;
   color: white;
-  display: block;
+  /*display: block;*/
   font-size: 10px;
   margin: 0px 0px 3px;
   padding: 4px 5px;
+  list-style-type: none;
 }
 /* END : error handeling/styling in forms. */

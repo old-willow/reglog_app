@@ -28,17 +28,19 @@
 
 {% block form %}
 
+{% comment %}
       {% if form.errors %}
         <div class="error_div">
           {# {{ form.non_field_errors }} #}
           {% if form.username.errors %}
-            {{ form.username.errors }}
+          {{ form.username.errors }}
           {% endif %}
           {% if form.password.errors %}
             {{ form.password.errors }}
           {% endif %}
         </div>
       {% endif %}
+{% endcomment %}
 
       <tr>
         <td>{{ form.username.label }}</td>
@@ -50,6 +52,9 @@
           {% endif %}
         </td>
         <td>{{ form.username }}</td>
+        {% if form.username.errors %}
+        <td nowrap>{{ form.username.errors }}</td>
+        {% endif %}
       </tr>
       <tr>
         <td>{{ form.password.label }}</td>
