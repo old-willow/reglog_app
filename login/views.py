@@ -57,6 +57,10 @@ def process_login(request):
     """
     View function for loging in a site.
     """
+
+    if request.user.is_authenticated():
+        return redirect('login:logedin')
+
     if request.method == 'POST':
 
         form = LoginForm(request.POST)
