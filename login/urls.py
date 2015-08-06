@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 #from login.forms import PasswordResetForm, ChangePasswordForm
 #from login import forms
 
-from django.contrib.auth.forms import SetPasswordForm
+#from django.contrib.auth.forms import SetPasswordForm
 
 
 urlpatterns = patterns(
@@ -14,14 +14,13 @@ urlpatterns = patterns(
         name='dummy-ajax'),
 
     url(r'check-username/$',
-        #'login.views.dummy_ajax',
         'login.views.ajax_login_username_check',
         name='ajax-usercheck'),  # AJAX
-    #(r'^login-form/$', 'login.views.process_login'),
-    #(r'^loged-in/$', 'login.views.loged_in', name='logedin'),
-    #(r'^portrait-look/$', 'login.views.show_portrait', name='portrait'),
-    #(r'^loged-out/$', 'login.views.loged_out', name='logedout'),
-    #(r'^logout-site/$', 'login.views.process_logout', name='logout-site'),
+    #url(r'^login-form/$', 'login.views.process_login'),
+    url(r'^loged-in/$', 'login.views.loged_in', name='logedin'),
+    url(r'^portrait-look/$', 'login.views.show_portrait', name='portrait'),
+    url(r'^loged-out/$', 'login.views.loged_out', name='logedout'),
+    url(r'^logout/$', 'login.views.process_logout', name='logout'),
     url(r'^login-error/$', 'login.views.error_login', name='login-error'),
     #(r'^password-successfully-changed/$', 'login.views.password_changed'),
 
