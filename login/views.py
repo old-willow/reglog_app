@@ -84,7 +84,7 @@ def process_login(request):
 
             else:
                 # This is fired if javascript is disabled in browser.
-                return HttpResponseRedirect('/login/login-error/')
+                return HttpResponseRedirect(reverse('login:login-error'))
 
     else:
         form = LoginForm()  # An unbound form.
@@ -195,13 +195,13 @@ def loged_out(request):
                               context_instance=RequestContext(request))
 
 
-def error_login(request):
+def login_error(request):
     """
     This is required if javascript is disabled in the browser.
     """
     context = {}
 
-    return render_to_response('login/wrong_username_or_password.html',
+    return render_to_response('login/login-error.html',
                               context,
                               context_instance=RequestContext(request))
 
