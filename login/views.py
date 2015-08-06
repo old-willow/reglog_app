@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.http import HttpResponseRedirect, HttpResponse  # Http404
 from django.template import RequestContext
 from django.contrib import auth
@@ -10,6 +10,7 @@ from django.contrib.auth import views
 #from django.core.context_processors import csrf
 
 from django.views.decorators.csrf import csrf_protect
+#from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.tokens import default_token_generator
 
@@ -79,9 +80,10 @@ def process_login(request):
                 #return HttpResponse('TRYING TO LOGIN!')
                 auth.login(request, user)
                 #return HttpResponse('LOGGED IN!')
-                return HttpResponseRedirect('/login/loged-in/')
+                return HttpResponseRedirect(reverse('login:logedin'))
 
             else:
+                # This is fired if javascript is disabled in browser.
                 return HttpResponseRedirect('/login/login-error/')
 
     else:
@@ -100,7 +102,7 @@ def process_login(request):
 def process_logout(request):
     auth.logout(request)
 
-    return HttpResponseRedirect('/login/loged-out/')
+    return HttpResponseRedirect(reverse('login:logedout'))
 
 
 def forgot_password_context_processor(request):
@@ -173,13 +175,16 @@ def password_reset_succesfully_changed(request):
     pass
 
 
+#@login_required
 def loged_in(request):
-    #path = User_Data.objects.get()
-    context = {}
+    if request.user.is_authenticated():
+        context = {}
 
-    return render_to_response('login/you_are_loged_in.html',
-                              context,
-                              context_instance=RequestContext(request))
+        return render_to_response('login/you_are_loged_in.html',
+                                  context,
+                                  context_instance=RequestContext(request))
+    else:
+        return redirect('login:index')
 
 
 def loged_out(request):
@@ -191,6 +196,9 @@ def loged_out(request):
 
 
 def error_login(request):
+    """
+    This is required if javascript is disabled in the browser.
+    """
     context = {}
 
     return render_to_response('login/wrong_username_or_password.html',
@@ -198,6 +206,7 @@ def error_login(request):
                               context_instance=RequestContext(request))
 
 
+#@login_required
 def show_portrait(request):
     """
     Provide a link to a picture of the current user.
