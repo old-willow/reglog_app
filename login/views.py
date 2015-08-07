@@ -221,7 +221,9 @@ def show_portrait(request):
 
         if user.portrait.url:
             portpath = user.portrait.url
-            context = {'portpath': portpath}
+            print(portpath)
+            context = {'user': user,
+                       'portpath': portpath}
 
             return render_to_response('login/show_portrait.html',
                                       context,

@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth import models as django_models
 
-from datetime import datetime
+#from datetime import datetime
+
 
 class Country(models.Model):
     country_code = models.CharField(max_length=3)
@@ -40,10 +41,13 @@ class User_Data(models.Model):
     address = models.CharField(max_length=512)
     date_of_birth = models.DateField(blank=True, null=True, default='NULL')
     note = models.TextField(blank=True, null=True, default='NULL')
-    portrait = models.ImageField(upload_to='portrait-images/',
+    portrait = models.ImageField(upload_to='portrait-view/',
                                  blank=True, null=True,
                                  default='NULL')
 
     def __unicode__(self):
         # Taking data form 'user-data' table.
         return u'%s %s' % (self.user.last_name, self.user.first_name)
+
+    def get_username(self):
+        return u'%s' % (self.user.username, )

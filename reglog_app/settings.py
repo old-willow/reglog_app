@@ -90,6 +90,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = '/home/robi/venv/reglog/reglog_app/static/'
+
 if DEBUG:
     #PASSWORD_RESET_TIMEOUT_DAYS = 3
 
@@ -97,6 +100,8 @@ if DEBUG:
         os.path.join(BASE_DIR, 'static'),
         '/home/robi/venv/reglog/reglog_app/static/'
     )
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'
 
     EMAIL_HOST = 'smtp.gmail.com'
     #EMAIL_HOST = 'smtp.eunet.rs'
@@ -108,6 +113,3 @@ if DEBUG:
 
     DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
     #SERVER_EMAIL = EMAIL_HOST_USER
-
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATIC_ROOT = '/home/robi/venv/reglog/reglog_app/static/'

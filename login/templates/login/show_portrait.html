@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
@@ -10,9 +12,9 @@
 
   <title>You Are Loged In</title>
 
-  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 
-  <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-1.6.2.min.js' %}"></script>
 
 <body>
 
@@ -23,8 +25,13 @@
     <table id="li_lo_rs_table">
       <tr>
         <td>Wow, you are looking pretty nice!</td>
-        <td><img src="{{ portpath }}" alt="portrait"></td>
-        <td><a href="/login/loged-in/">Back</a></td>
+        <td><img src="{{ user.portrait.url }}" alt="{{ user.get_username }}"></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'login:logedin' %}">Back</a></td>
+      </tr>
+      <tr>
+          <td><a href="{% url 'home:index' %}"><span style="color:#006600; font-size:1.8em;">home</span></a></td>
       </tr>
     </table>
   </div>

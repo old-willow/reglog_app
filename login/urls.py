@@ -17,7 +17,7 @@ urlpatterns = patterns(
         'login.views.ajax_login_username_check',
         name='ajax-usercheck'),  # AJAX
     url(r'^loged-in/$', 'login.views.loged_in', name='logedin'),
-    url(r'^portrait-look/$', 'login.views.show_portrait', name='portrait'),
+    url(r'^show-portrait/$', 'login.views.show_portrait', name='show_portrait'),
     url(r'^loged-out/$', 'login.views.loged_out', name='logedout'),
     url(r'^logout/$', 'login.views.process_logout', name='logout'),
     url(r'^login-error/$', 'login.views.login_error', name='login-error'),
