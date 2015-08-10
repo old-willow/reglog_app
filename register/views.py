@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response
-from django.http import Http404, HttpResponseRedirect
+from django.http import HttpResponseRedirect  # Http404
 from django.template import RequestContext
 
-from register.models import User_Data
+#from register.models import User_Data
 from register.forms import RegistrationFormCustom
 
 
@@ -31,14 +31,14 @@ def process_register(request):
         #                                  'datepicker': u'1971-01-01',
         #                                  'note': u'Nothing special. Just something about me.',
         #                              })
-        form = RegistrationFormCustom()
+        form = RegistrationFormCustom(auto_id='id_%s', label_suffix=': ')
 
     context = {
         'form': form,
         'formname': 'Registration'
     }
 
-    return render_to_response('register/working_register_template.html',
+    return render_to_response('register/register-index.html',
                               context,
                               context_instance=RequestContext(request))
 
