@@ -37,7 +37,76 @@
 {% endblock %}
 
 {% block form %}
+<table>
+{{ form.non_field_errors }}
+    {#{{ form.as_table }}#}
+    <tr>
+        <td>{{ form.gender.errors }}</td>
+        <td>{{ form.gender.label_tag }}</td>
+        <td>{{ form.gender }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.firstname.errors }}</td>
+        <td>{{ form.firstname.label_tag }}</td>
+        <td>{{ form.firstname }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.lastname.errors }}</td>
+        <td>{{ form.lastname.label_tag }}</td>
+        <td>{{ form.lastname }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.username.errors }}</td>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.phone.errors }}</td>
+        <td>{{ form.phone.label_tag }}</td>
+        <td>{{ form.phone }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.countries.errors }}</td>
+        <td>{{ form.countries.label_tag }}</td>
+        <td>{{ form.countries }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.address.errors }}</td>
+        <td>{{ form.address.label_tag }}</td>
+        <td>{{ form.address }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.email.errors }}</td>
+        <td>{{ form.email.label_tag }}</td>
+        <td>{{ form.email }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.errors }}</td>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.confirm_password.errors }}</td>
+        <td>{{ form.confirm_password.label_tag }}</td>
+        <td>{{ form.confirm_password }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.datepicker.errors }}</td>
+        <td>{{ form.datepicker.label_tag }}</td>
+        <td>{{ form.datepicker }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.note.errors }}</td>
+        <td>{{ form.note.label_tag }}</td>
+        <td>{{ form.note }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.portrait.errors }}</td>
+        <td>{{ form.portrait.label_tag }}</td>
+        <td>{{ form.portrait }}</td>
+    </tr>
 
+{% comment %}
       {% if form.errors %}
         <div class="error_div">
           {# {{ form.non_field_errors }} #}
@@ -242,14 +311,18 @@
         <td width="10px"></td>
         <td>{{ form.portrait }}</td>
       </tr>
-
+{% endcomment %}
       <tr>
-        <td> Already registered? <a href="{% url 'login:index' %}">Login</a></td>
-        <td width="10px"></td>
+        <td></td>
         <td><input type="submit" id="submit" value="Register" /></td>
       </tr>
       <tr>
-        <td><a href="/"><span style="color:#006600; font-size:1.8em;">home</span></a></td>
-        <td width="10px"></td>
+        <td>Already registered? <a href="{% url 'login:index' %}">Login</a></td>
+        <td></td>
       </tr>
+      <tr>
+        <td><a href="/"><span style="color:#006600; font-size:1.8em;">home</span></a></tr></td>
+        <td></td>
+      </tr>
+</table>
 {% endblock %}
